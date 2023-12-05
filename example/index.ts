@@ -1,4 +1,4 @@
-import type { IConfiguration } from "../bin";
+import type { IConfiguration } from "../lib";
 
 export const config: IConfiguration = {
     input: "example",
@@ -14,7 +14,7 @@ export const config: IConfiguration = {
             output: "../db",
         },
         {
-            name: "erd",
+            //    name: "erd",
             provider: "prisma-markdown",
             output: "../ERD.md",
             title: "Template",

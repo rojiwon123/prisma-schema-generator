@@ -2,28 +2,14 @@ import fs from "fs";
 import path from "path";
 
 import { IConfiguration } from "../types";
-import { importSync } from "./importSync";
 import { Validator } from "./validator";
 
 /** @internal */
 export namespace Configuration {
-    const parse = (location: string): IConfiguration => {
-        if (
-            location.endsWith(".d.ts") ||
-            !(
-                location.endsWith(".js") ||
-                location.endsWith(".ts") ||
-                location.endsWith(".json")
-            )
-        )
-            throw Error(
-                "configuration file should be one of ['.js', '.ts', '.json'].",
-            );
-
+    const parse = async (location: string): Promise<IConfiguration> => {
         if (!fs.existsSync(location))
             throw Error(`can not find module at ${location}`);
-
-        const json = importSync(location).default;
+        const json = (await import(location))?.default;
         Validator.assertConfiguration(json);
         return json;
     };

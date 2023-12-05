@@ -1,4 +1,4 @@
-import psg, { Field } from "../bin";
+import psg, { Field } from "../lib";
 
 psg.Model("User", {
     comments: ["Root Entity of User"],

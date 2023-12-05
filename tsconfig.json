@@ -55,7 +55,7 @@
         // "noEmit": false,
         // "noEmitHelpers": false,
         "noEmitOnError": true,
-        "outDir": "./bin",
+        "outDir": "./lib",
         // "outFile": "",
         // "preserveConstEnums": false,
         "removeComments": false,

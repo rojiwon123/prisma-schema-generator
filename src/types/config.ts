@@ -15,7 +15,7 @@ export interface IGenerator {
     provider: string;
     output?: string;
     previewFeatures?: string[];
-    [key: string]: string | string[] | boolean | { env: string };
+    [key: string]: string | string[] | boolean | { env: string } | undefined;
 }
 
 export interface IConfiguration {

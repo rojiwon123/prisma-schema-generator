@@ -1,4 +1,3 @@
-/** @internal */
 export interface IDefaultOptions {
     comments?: string[];
     map?: string;

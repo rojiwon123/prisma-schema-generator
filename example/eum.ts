@@ -1,3 +1,3 @@
-import { Enum } from "../bin";
+import { Enum } from "../lib";
 
 Enum("OauthType")("github", "kakao", "naver");

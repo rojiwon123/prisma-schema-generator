@@ -1,12 +1,19 @@
 {
-    "name": "@rojiwon/prisma-schema-generator",
-    "version": "0.0.0",
+    "name": "@rojiwon123/prisma-schema-generator",
+    "version": "0.0.5",
     "description": "util library for generating prisma schema",
-    "main": "index.js",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
     "scripts": {
-        "build": "rimraf bin && tsc -p tsconfig.build.json",
-        "start": "ts-node bin/internal/execute -- --config ./example/psg.config.ts",
-        "prettier": "prettier . -w"
+        "build": "rimraf lib && tsc -p tsconfig.build.json",
+        "example": "npm run build && node lib/internal/execute -- --config ./example/psg.config.ts",
+        "prettier": "prettier . -w",
+        "prepublish": "npm run build"
+    },
+    "bin": "lib/internal/execute.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rojiwon123/prisma-schema-generator.git"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"
@@ -23,12 +30,13 @@
         "prettier": "^3.1.0",
         "prisma": "^5.6.0",
         "rimraf": "^5.0.5",
-        "source-map-support": "^0.5.21",
+        "source-map-support": "^0.5.21"
+    },
+    "dependencies": {
+        "glob": "^10.3.10",
+        "tsconfig-paths": "^4.2.0",
         "ts-node": "^10.9.1",
         "typescript": "^5.3.2",
         "typescript-transform-paths": "^3.4.6"
-    },
-    "dependencies": {
-        "glob": "^10.3.10"
     }
 }
