@@ -14,7 +14,7 @@ export const config: IConfiguration = {
             output: "../db",
         },
         {
-            //    name: "erd",
+            name: "erd",
             provider: "prisma-markdown",
             output: "../ERD.md",
             title: "Template",

@@ -6,7 +6,7 @@
     "types": "lib/index.d.ts",
     "scripts": {
         "build": "rimraf lib && tsc -p tsconfig.build.json",
-        "example": "npm run build && node lib/internal/execute -- --config ./example/psg.config.ts",
+        "example": "npm run build && node lib/internal/execute -- --config ./example",
         "prettier": "prettier . -w",
         "prepublish": "npm run build"
     },
