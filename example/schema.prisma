@@ -21,10 +21,13 @@ enum OauthType {
 }
 
 ///  Root Entity of User
+///
 model User {
   ///  'uuid' type
+  ///
   id         String     @id @database.Uuid
   ///  displayed name of user
+  ///
   name       String    
   OauthType  OauthType? @default(github)
   created_at DateTime  

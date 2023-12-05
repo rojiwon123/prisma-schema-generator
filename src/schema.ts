@@ -18,12 +18,12 @@ export const Schema =
         );
 
         options.comments?.forEach((comment) =>
-            context.push(`\n///  ${comment}`),
+            context.push(`\n///  ${comment}\n///`),
         );
         context.push(`\n${schema_type} ${name} {`);
         fields.forEach((field) => {
             field.comments.forEach((comment) =>
-                context.push(`\n  ///  ${comment}`),
+                context.push(`\n  ///  ${comment}\n  ///`),
             );
             context.push(`\n  ${field.name.padEnd(max_of_field_name_length)} `);
             context.push(field.type.padEnd(max_of_field_type_length));
