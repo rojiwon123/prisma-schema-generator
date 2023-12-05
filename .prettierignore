@@ -1,0 +1,18 @@
+node_modules
+
+# build
+
+dist
+build
+bin
+
+*.log
+
+# env
+
+.env
+.env.*
+
+.DS_Store
+
+.npmrc

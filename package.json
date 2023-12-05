@@ -1,0 +1,30 @@
+{
+  "name": "@rojiwon/prisma-schema-generator",
+  "version": "0.0.0",
+  "description": "util library for generating prisma schema",
+  "main": "index.js",
+  "scripts": {
+    "build":"rimraf bin && tsc",
+    "start": "ts-node bin/internal/execute -- --config ./example/psg.config.ts",    "test": "npm run test"
+  },
+  "author": "industriously",
+  "license": "ISC",
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "eslint-plugin-deprecation": "^2.0.0",
+    "husky": "^8.0.3",
+    "prettier": "^3.1.0",
+    "prisma": "^5.6.0",
+    "rimraf": "^5.0.5",
+    "source-map-support": "^0.5.21",
+    "typescript-transform-paths": "^3.4.6",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "glob": "^10.3.10",
+    "ts-node": "^10.9.1"
+  }
+}

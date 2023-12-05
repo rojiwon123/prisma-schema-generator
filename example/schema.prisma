@@ -1,0 +1,49 @@
+datasource database {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator db {
+  provider = "prisma-client-js"
+  output   = "../db"
+}
+
+generator erd {
+  provider = "prisma-markdown"
+  output   = "../ERD.md"
+  title    = "Template"
+}
+
+enum OauthType {
+  github
+  kakao
+  naver
+}
+
+///  Root Entity of User
+model User {
+  ///  'uuid' type
+  id         String     @id @database.Uuid
+  ///  displayed name of user
+  name       String    
+  OauthType  OauthType? @default(github)
+  created_at DateTime  
+  updated_at DateTime?  @updatedAt
+  articles   Article[] 
+
+  @@index([created_at])
+  @@map("users")
+}
+
+model Article {
+  id         Int       @id @default(autoincrement())
+  title      String   
+  body       String   
+  author_id  String    @database.Uuid
+  author     User      @relation(fields: [author_id], references: [id])
+  created_at DateTime 
+  updated_at DateTime? @updatedAt
+
+  @@index([created_at])
+  @@map("articles")
+}
