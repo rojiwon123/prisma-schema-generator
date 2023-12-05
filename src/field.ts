@@ -117,7 +117,7 @@ const relation = (name: string, options: IRelationOptions = {}): IField => {
     const field: IField = {
         name,
         type: fieldType(options.model ?? name, options.constraint),
-        comments: options.comments ?? [],
+        comments: [],
         attributes: [],
     };
     const relations: string[] = [];
@@ -132,7 +132,8 @@ const relation = (name: string, options: IRelationOptions = {}): IField => {
         relations.push(`onUpdate: ${options.onDelete}`);
     if (relations.length > 0)
         field.attributes.push(`@relation(${relations.join(", ")})`);
-    return defaultOptions(field, options);
+    if (options.ignore) field.attributes.push("@ignore");
+    return field;
 };
 
 export const Field = {

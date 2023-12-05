@@ -68,19 +68,20 @@ export type RelationActionType =
     | "SetNull"
     | "SetDefault";
 
-export type IRelationOptions = IDefaultOptions & {
+export type IRelationOptions = {
+    ignore?: boolean;
     constraint?: "required" | "nullable" | "list";
     model?: string;
     name?: string;
     onUpdate?: RelationActionType;
     onDelete?: RelationActionType;
 } & (
-        | {
-              fields: string[];
-              references: string[];
-          }
-        | { fields?: undefined; references?: undefined }
-    );
+    | {
+          fields: string[];
+          references: string[];
+      }
+    | { fields?: undefined; references?: undefined }
+);
 
 export interface ISchemaOptions {
     comments?: string[];
