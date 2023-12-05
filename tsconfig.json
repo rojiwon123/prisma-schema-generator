@@ -101,6 +101,5 @@
 
         /* Completeness */
         "skipLibCheck": true
-    },
-    "include": ["src"]
+    }
 }
